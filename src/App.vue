@@ -2,8 +2,8 @@
   <div class='example-page'>
     <div class="chart">
       <!-- <line-chart :dataModel='lineChartData' propID='example-line-chart' metric='Last Sale Price' title='Example Line Chart'></line-chart> -->
-      <bar-chart title="title" :dataModel="barChartData" propID='example-bar-chart' yaxisLabel="cost" xaxisLabel="time" metric="test"></bar-chart>
-      <!-- <bubble-chart :dataModel="bubbleChartData" title="Hello" isTime="false" type="category"></bubble-chart> -->
+      <!-- <bar-chart title="title" :dataModel="barChartData" propID='example-bar-chart' yaxisLabel="cost" xaxisLabel="time" metric="test"></bar-chart> -->
+      <bubble-chart :dataModel="bubbleChartData" title="Hello" isTime="false" type="category"></bubble-chart>
       <!-- <bullet-chart :dataModel="bulletChartData" isStock="false"></bullet-chart> -->
       <!-- <box-plot :dataModel="boxPlotData"></box-plot> -->
       <!-- <dendrogram-plot :dataModel="dendrogramData" title="Dendrogram"></dendrogram-plot> -->

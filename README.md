@@ -64,12 +64,12 @@ new Vue({
 
 The following properties exist in each JSCatalyst chart:
 
-- _propID_ -- String
+- _`propID`_ -- String
 
   - The html element 'id' in the DOM.
   - Default: A generic identifier like 'container-barchart'
 
-- _title_ -- String
+- _`title`_ -- String
 
   - Text rendered as the title of the chart
 
@@ -84,7 +84,7 @@ The following properties exist in each JSCatalyst chart:
     propID='example-bar-chart'
     yaxisLabel="Y Axis"
     xaxisLabel="X Axis"
-    >
+    />
   </div>
 </template>
 
@@ -107,7 +107,7 @@ export default{
 </script>
 ```
 
-### _dataModel_
+### _`dataModel`_
 
 Type: _Array_
 
@@ -127,8 +127,130 @@ barChartData = [
 ];
 ```
 
-### _xaxisLabel_
+### _`xaxisLabel`_
 
 Type: _String_
 
-The `xaxisLabel` property
+The `xaxisLabel` property sets the X-axis label rendered below the X-axis.
+
+### _`yaxisLabel`_
+
+Type: _String_
+
+The `yaxisLabel` property sets the Y-axis label rendered below the Y-axis.
+
+### `Notes`:
+
+## 2) D3BubbleChart
+
+```html
+<template>
+  <div>
+    <bubble-chart
+    :dataModel="bubbleChartData"
+    title="Hello"
+    isTime="false"
+    type="category"
+    />
+
+  </div>
+</template>
+
+<script>
+
+import {D3BubbleChart} from 'jscatalyst'
+export default{
+  data(){
+    return{
+      bubbleChartData:[{}, {}]
+    }
+  },
+  components:{
+    bubbleChart: D3BubbleChart
+  }
+}
+
+</script>
+```
+
+### _`dataModel`_
+
+Type: _Array_
+
+The `dataModel` property of the `D3BubbleChart` takes the form of an array of objects and is empty by default.
+
+```html
+<bubble-chart :dataModel="[{}, {}]"/>
+```
+
+Each object represents a data point ("bubble") defined by its keys: `x`, `y`, `value`, and `label`.
+
+```js
+bubbleChartData = [
+  { x: 40, y: 10, value: 30, label: "Datum" },
+  { x: 2, y: 90, value: 9, label: "Datum2" },
+  { x: 5, y: 20, value: 25, label: "Datum3" },
+  { x: 80, y: 2, value: 43, label: "Datum4" }
+];
+```
+
+- `x`
+
+  - Type: _Number_
+  - Value of the X-coordinate.
+
+- `y`
+
+  - Type: _Number_
+  - Value of the Y-coordinate.
+
+- `value`
+
+  - Type: _Number_
+  - Magnitude of the data point and diameter of the "bubble".
+
+- `label`
+  - Type: _String_
+  - Title of the data point. Rendered in a pop-up box that appears when hovering over a bubble.
+
+### _`xaxisLabel`_
+
+Type: _String_
+
+The `xaxisLabel` property sets the X-axis label rendered below the X-axis.
+
+### _`yaxisLabel`_
+
+Type: _String_
+
+The `yaxisLabel` property sets the Y-axis label rendered below the Y-axis.
+
+### _`isTime`_
+
+Type: _Boolean_
+
+### `Notes`:
+
+- No Entry in official documentation
+
+## 3) D3BulletChart
+
+### `Notes`:
+
+## 4) D3BoxChart
+
+### `Notes`:
+
+## 5) D3Dendrogram
+
+### `Notes`:
+
+## 6) D3DifferenceChart
+
+### `Notes`:
+
+## 7) D3GanttChart
+
+### `Notes`:
+
+## 8) D3HeatMap
