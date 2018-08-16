@@ -1,5 +1,19 @@
 # JSCatalyst -- Documentation Notes/Changes
 
+# Table of Contents
+
+- [Setup](#Setup)
+  - [Installation](#Installation)
+  - [Store.js](#Store.js)
+  - [Main.js](#Main.js)
+- [D3 Chart Documentation](#D3-Chart-Documentation)
+  - [Universal JSCatalyst D3 Chart Attributes](#Universal-JSCatalyst-D3-Chart-Attributes)
+  - [D3BarChart](#D3BarChart)
+  - [D3BubbleChart](#D3BubbleChart)
+  - [D3BulletChart](#D3BulletChart)
+  - [D3BarChart](#D3BarChart)
+  - [D3BarChart](#D3BarChart)
+
 ## Setup
 
 ### Installation
@@ -60,7 +74,7 @@ new Vue({
 
 # D3 Chart Documentation
 
-## 0) Universal JSCatalyst D3 Chart Attributes
+## Universal JSCatalyst D3 Chart Attributes
 
 The following properties exist in each JSCatalyst chart:
 
@@ -73,7 +87,7 @@ The following properties exist in each JSCatalyst chart:
 
   - Text rendered as the title of the chart
 
-## 1) D3BarChart
+## D3BarChart
 
 ```html
 <template>
@@ -107,7 +121,9 @@ export default{
 </script>
 ```
 
-### _`dataModel`_
+### Properties
+
+#### _`dataModel`_
 
 Type: _Array_
 
@@ -127,13 +143,13 @@ barChartData = [
 ];
 ```
 
-### _`xaxisLabel`_
+#### _`xaxisLabel`_
 
 Type: _String_
 
 The `xaxisLabel` property sets the X-axis label rendered below the X-axis.
 
-### _`yaxisLabel`_
+#### _`yaxisLabel`_
 
 Type: _String_
 
@@ -141,7 +157,11 @@ The `yaxisLabel` property sets the Y-axis label rendered below the Y-axis.
 
 ### `Notes`:
 
-## 2) D3BubbleChart
+---
+
+## D3BubbleChart
+
+### Sample
 
 ```html
 <template>
@@ -152,7 +172,6 @@ The `yaxisLabel` property sets the Y-axis label rendered below the Y-axis.
     isTime="false"
     type="category"
     />
-
   </div>
 </template>
 
@@ -173,7 +192,9 @@ export default{
 </script>
 ```
 
-### _`dataModel`_
+### Properties
+
+#### _`dataModel`_
 
 Type: _Array_
 
@@ -194,6 +215,8 @@ bubbleChartData = [
 ];
 ```
 
+##### Keys
+
 - `x`
 
   - Type: _Number_
@@ -213,19 +236,19 @@ bubbleChartData = [
   - Type: _String_
   - Title of the data point. Rendered in a pop-up box that appears when hovering over a bubble.
 
-### _`xaxisLabel`_
+#### _`xaxisLabel`_
 
 Type: _String_
 
 The `xaxisLabel` property sets the X-axis label rendered below the X-axis.
 
-### _`yaxisLabel`_
+#### _`yaxisLabel`_
 
 Type: _String_
 
 The `yaxisLabel` property sets the Y-axis label rendered below the Y-axis.
 
-### _`isTime`_
+#### _`isTime`_
 
 Type: _Boolean_
 
@@ -233,24 +256,30 @@ Type: _Boolean_
 
 - No Entry in official documentation
 
-## 3) D3BulletChart
+---
+
+## D3BulletChart
+
+### Sample
+
+### Properties
 
 ### `Notes`:
 
-## 4) D3BoxChart
+## D3BoxChart
 
 ### `Notes`:
 
-## 5) D3Dendrogram
+## D3Dendrogram
 
 ### `Notes`:
 
-## 6) D3DifferenceChart
+## D3DifferenceChart
 
 ### `Notes`:
 
-## 7) D3GanttChart
+## D3GanttChart
 
 ### `Notes`:
 
-## 8) D3HeatMap
+## D3HeatMap
