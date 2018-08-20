@@ -2,20 +2,20 @@
 
 # Table of Contents
 
-- [Setup](#Setup)
-  - [Installation](#Installation)
-  - [Store.js](#Store.js)
-  - [Main.js](#Main.js)
-- [D3 Chart Documentation](#d3-Chart-Documentation)
-  - [Universal JSCatalyst D3 Chart Attributes](#Universal-JSCatalyst-D3-Chart-Attributes)
+- [Setup](#setup)
+  - [Installation](#installation)
+  - [Store.js](#store.js)
+  - [Main.js](#main.js)
+- [D3 Chart Documentation](#d3-chart-documentation)
+  - [Universal JSCatalyst D3 Chart Attributes](#universal-jscatalyst-d3-chart-attributes)
   - [D3BarChart](#d3barchart)
-  - [D3BubbleChart](#D3BubbleChart)
-  - [D3BulletChart](#D3BulletChart)
-  - [D3BoxPlot](#D3BoxPlot)
-  - [D3DifferenceChart](#D3DifferenceChart)
-  - [D3ForceGraph](#D3ForceGraph)
-  - [D3GanttChart](#D3GanttChart)
-  - [D3HeatMap](#D3HeatMap)
+  - [D3BubbleChart](#d3bubblechart)
+  - [D3BulletChart](#d3bulletchart)
+  - [D3BoxPlot](#d3boxplot)
+  - [D3DifferenceChart](#d3differencechart)
+  - [D3ForceGraph](#d3forcegraph)
+  - [D3GanttChart](#d3ganttchart)
+  - [D3HeatMap](#d3heatmap)
 
 ---
 
