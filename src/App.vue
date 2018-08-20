@@ -10,8 +10,8 @@
       <!-- <difference-chart :dataModel="differenceChartData" metric="yAxis" title="Title" keys="['diff', 'again']" ></difference-chart> -->
       <!-- <force-graph :dataModel="forceDirectedGraphData" title="Title"></force-graph> -->
       <!-- <gantt-chart :dataModel="ganttChartData" style="height:100%" actual="green"></gantt-chart> -->
-      <heat-map :dataModel="heatMapData" alertText="Incident(s)" propID='heatMap'></heat-map>    
-
+      <!-- <heat-map :dataModel="heatMapData" alertText="Incident(s)" propID='heatMap'></heat-map>     -->
+      <histogram  :dataModel="histogramData" xAxis="XAxis" yAxis="Y" metric="metric"/>
    </div>
   </div>
 </template>
@@ -28,7 +28,8 @@
     D3DifferenceChart,
     D3ForceGraph,
     D3GanttChart,
-    D3HeatMap
+    D3HeatMap,
+    D3Histogram
   } from "jscatalyst";
   import {
     barChartData,
@@ -40,7 +41,8 @@
     differenceChartData,
     forceDirectedGraphData,
     ganttChartData,
-    heatMapData
+    heatMapData,
+    histogramData
   } from "./mockData/index.js";
 
   export default {
@@ -55,7 +57,8 @@
         differenceChartData,
         forceDirectedGraphData,
         ganttChartData,
-        heatMapData
+        heatMapData,
+        histogramData
       };
     },
     methods: {},
@@ -69,7 +72,8 @@
       differenceChart: D3DifferenceChart,
       forceGraph: D3ForceGraph,
       ganttChart: D3GanttChart,
-      heatMap: D3HeatMap
+      heatMap: D3HeatMap,
+      histogram: D3Histogram
     }
   };
 </script>

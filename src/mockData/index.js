@@ -8,3 +8,4 @@ export { differenceChartData } from "./differenceChartData.js";
 export { forceDirectedGraphData } from "./forceDirectedGraphData.js";
 export { ganttChartData } from "./ganttChartData";
 export { heatMapData } from "./heatMapData";
+export { histogramData } from "./histogramData";

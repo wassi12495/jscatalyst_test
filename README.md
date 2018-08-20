@@ -16,6 +16,7 @@
   - [D3ForceGraph](#d3forcegraph)
   - [D3GanttChart](#d3ganttchart)
   - [D3HeatMap](#d3heatmap)
+  - [D3Histogram](#d3histogram)
 
 ---
 
@@ -1073,5 +1074,59 @@ Default: "Incident"
 
 - Sample code from jscatalyst will not render without proper access to the store and ThemePlugin
 - How to connect to CSS
+
+##### [<--- Back to Table of Contents](#table-of-contents)
+
+---
+
+## `D3Histogram`
+
+### Sample
+
+```html
+<template>
+  <div>
+    <histogram
+      :dataModel="histogramData"
+    />
+
+  </div>
+</template>
+
+<script>
+
+import {D3Histogram} from 'jscatalyst'
+export default{
+  data(){
+    return{
+      histogramData: [] // See dataModel property
+    }
+  },
+  components:{
+    histogram: D3Histogram
+  }
+}
+
+</script>
+```
+
+### Properties
+
+#### _`dataModel`_
+
+Type: _Array_
+
+The `dataModel` for the `D3Histogram` takes an array of Numbers. Each Number represents another point of data.
+
+The `dataModel` is empty and will produce an error by default.
+
+```js
+```
+
+## `Developer Notes`:
+
+- D3Histogram appears to have a bunch of hidden behind the scenes calculations that are not made clear,
+- See Time formatting and formatTimeMixin
+- Does not have a tool for adding a label to the X or Y axis
 
 ##### [<--- Back to Table of Contents](#table-of-contents)
