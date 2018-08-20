@@ -4,8 +4,8 @@
 
 - [Setup](#setup)
   - [Installation](#installation)
-  - [Store.js](#store.js)
-  - [Main.js](#main.js)
+  - [Store.js](#storejs)
+  - [Main.js](#mainjs)
 - [D3 Chart Documentation](#d3-chart-documentation)
   - [Universal JSCatalyst D3 Chart Attributes](#universal-jscatalyst-d3-chart-attributes)
   - [D3BarChart](#d3barchart)
@@ -703,8 +703,10 @@ Note: The _Force Directed Graph_ exports as _`D3ForceGraph`_.
 ```html
 <template>
   <div>
-
-
+    <force-graph
+      :dataModel="forceDirectedGraphData"
+      title="Title"
+    />
   </div>
 </template>
 
@@ -807,14 +809,253 @@ forceDirectedGraphData = {
 
 ---
 
-## D3GanttChart
+## `D3GanttChart`
+
+### Sample
+
+```html
+<template>
+  <div>
+    <gantt-chart
+      :dataModel="ganttChartData"
+      style="height:100%"
+    />
+  </div>
+</template>
+
+<script>
+
+import {D3GanttChart} from 'jscatalyst'
+export default{
+  data(){
+    return{
+        ganttChartData = []
+    }
+  },
+  components:{
+    ganttChart: D3GanttChart
+  }
+}
+
+</script>
+```
+
+Note: chart will not render without
+
+```css
+style="height:100%"
+```
+
+### Properties
+
+#### _`dataModel`_
+
+Type: _Array_
+
+The `D3GanttChart` has default sample data. A more complete example:
+
+```js
+ganttChartData = [
+  {
+    startDate: "Dec 09 2017 00:00:45",
+    endDate: "Dec 13 2017 02:36:45",
+    taskName: "E Job",
+    status: "RUNNING"
+  },
+  {
+    startDate: "Nov 09 2017 06:34:04",
+    endDate: "Nov 23 2017 08:49:53",
+    taskName: "D Job",
+    status: "RUNNING"
+  },
+  {
+    startDate: "Oct 03 2017 03:27:35",
+    endDate: "Nov 15 2017 03:58:43",
+    taskName: "P Job",
+    status: "SUCCEEDED"
+  },
+  {
+    startDate: "Oct 07 2017 03:27:35",
+    endDate: "Oct 15 2017 03:58:43",
+    taskName: "D Job",
+    status: "FAILED"
+  },
+  {
+    startDate: "Oct 09 2017 03:27:35",
+    endDate: "Dec 20 2017 03:58:43",
+    taskName: "N Job",
+    status: "KILLED"
+  }
+];
+```
+
+#### `dataModel` Object Keys:
+
+- `startDate`
+
+  Type: _String_
+
+  String Date with specified date format. Indicates the beginning of the event
+
+- `endDate`
+
+  Type: _String_
+
+  String Date with specified date format. Indicates the end of the event
+
+- `taskName`
+
+  Type: _String_
+
+  Label of the task/event rendred on Y-Axis
+
+- `status`
+
+  Type: _String_
+
+  The Current status of the task. See `taskStatuses` property.
+
+#### _`dateFormat`_
+
+Type: _String_
+
+Allows the developer to determine the desired date format for `dataModel`
+
+**Find potential limitations**
+
+#### _`taskStatuses`_ (Broken)
+
+Type: _Object_ / _Array_
+
+Object keys indicate the potential statuses of each task. If connected to css, changes class and style based on different status.
+
+Currently not functional
+
+#### _`actual`_
+
+**No obvious Function**
 
 ## `Developer Notes`:
+
+- will not render without style="height: 100%"
+- find limitations of the dateFormat property
+- Must connect taskStatuses to CSS
+- What does `actual` do??? Right now, disconnected.
+- tickFormat?? See .Docx
 
 ---
 
-## D3HeatMap
+## `D3HeatMap`
+
+Note: Heat map will not render without access to ThemePlugin from jscatalyst and the store. ( See [setup](#setup) above)
+
+### Sample
+
+```html
+<template>
+  <div>
+
+    <heat-map
+    :dataModel="heatMapData"
+    alertText="Volume Label"
+    />
+
+  </div>
+</template>
+
+<script>
+
+import {D3HeatMap} from 'jscatalyst'
+export default{
+  data(){
+    return{
+      heatMapData: [] // See dataModel property
+    }
+  },
+  components:{
+    heatMap: D3HeatMap
+  }
+}
+
+</script>
+```
+
+### Properties
+
+#### _`dataModel`_
+
+Type: _Array_
+
+The `dataModel` for the `D3HeatMap` takes an array of objects. Each object represents one data point:
+
+```js
+heatMapData = [
+  {
+    date: "2017-11-30",
+    volume: 2
+  },
+  {
+    date: "2017-11-29",
+    volume: 0
+  },
+  {
+    date: "2017-11-30",
+    volume: 0
+  },
+  {
+    date: "2017-11-28",
+    volume: 1
+  },
+  {
+    date: "2017-11-27",
+    volume: 0
+  },
+  {
+    date: "2017-11-28",
+    volume: 0
+  },
+  {
+    date: "2017-11-26",
+    volume: 1
+  },
+  {
+    date: "2017-11-25",
+    volume: 1
+  },
+  {
+    date: "2017-11-24",
+    volume: 0
+  }
+];
+```
+
+#### `dataModel` Object Keys:
+
+- `date`
+
+  Type: _String_
+
+  Defines location of data point on the heat map matrix. See `dateFormat` property.
+
+- `volume`
+
+  Type: _Number_
+
+  The value of the data point. Affects the visual "heat" or color of the data point in the matrix heat map. See the `alertText` property.
+
+  Default: # of incidents
+
+#### _`alertText`_
+
+Type: _String_
+
+The name of the data defined in the `volume` of the `dataModel`.
+
+Default: "Incident"
 
 ## `Developer Notes`:
+
+- Sample code from jscatalyst will not render without proper access to the store and ThemePlugin
+- How to connect to CSS
 
 ---

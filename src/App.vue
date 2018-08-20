@@ -8,9 +8,9 @@
       <!-- <box-plot :dataModel="boxPlotData" ylabel="Ylabel" xlabel="Xlabel" metric="Metric"></box-plot> -->
       <!-- <dendrogram-plot :dataModel="dendrogramData" title="Dendrogram"></dendrogram-plot> -->
       <!-- <difference-chart :dataModel="differenceChartData" metric="yAxis" title="Title" keys="['diff', 'again']" ></difference-chart> -->
-      <force-graph :dataModel="forceDirectedGraphData" title="Title"></force-graph>
+      <!-- <force-graph :dataModel="forceDirectedGraphData" title="Title"></force-graph> -->
       <!-- <gantt-chart :dataModel="ganttChartData" style="height:100%" actual="green"></gantt-chart> -->
-      <!-- <heat-map :dataModel="heatMapData" alertText="Incident" propID='heatMap'></heat-map>     -->
+      <heat-map :dataModel="heatMapData" alertText="Incident(s)" propID='heatMap'></heat-map>    
 
    </div>
   </div>
