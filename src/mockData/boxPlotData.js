@@ -8,8 +8,7 @@ export const boxPlotData = [
   {
     Q1: 9879,
     Q2: 9323,
-    Q3: 3294,
-    Q4: 5629
+    Q3: 3294
   },
   {
     Q1: 5070,
