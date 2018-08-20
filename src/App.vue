@@ -1,8 +1,7 @@
 <template>
   <div class='example-page'>
     <div class="chart">
-      <!-- <line-chart :dataModel='lineChartData' propID='example-line-chart' metric='Last Sale Price' title='Example Line Chart'></line-chart> -->
-      <bar-chart title="title" :dataModel="barChartData" propID='example-bar-chart' yaxisLabel="cost" xaxisLabel="time" metric="test"></bar-chart>
+      <!-- <bar-chart title="title" :dataModel="barChartData" propID='example-bar-chart' yaxisLabel="cost" xaxisLabel="time" metric="test"></bar-chart> -->
       <!-- <bubble-chart :dataModel="bubbleChartData" title="Hello" isTime="false" type="category"></bubble-chart> -->
       <!-- <bullet-chart :dataModel="bulletChartData" isStock="true"></bullet-chart> -->
       <!-- <box-plot :dataModel="boxPlotData" ylabel="Ylabel" xlabel="Xlabel" metric="Metric"></box-plot> -->
@@ -12,6 +11,9 @@
       <!-- <gantt-chart :dataModel="ganttChartData" style="height:100%" actual="green"></gantt-chart> -->
       <!-- <heat-map :dataModel="heatMapData" alertText="Incident(s)" propID='heatMap'></heat-map>     -->
       <!-- <histogram  :dataModel="histogramData" xAxis="XAxis" yAxis="Y" metric="metric"/> -->
+      <!-- <horizon-chart ></horizon-chart> -->
+      <line-chart :dataModel='lineChartData' propID='example-line-chart' alertText="Incidents Volume" title='Example Line Chart'></line-chart>
+
    </div>
   </div>
 </template>
@@ -29,7 +31,8 @@
     D3ForceGraph,
     D3GanttChart,
     D3HeatMap,
-    D3Histogram
+    D3Histogram,
+    D3HorizonChart
   } from "jscatalyst";
   import {
     barChartData,
@@ -73,7 +76,8 @@
       forceGraph: D3ForceGraph,
       ganttChart: D3GanttChart,
       heatMap: D3HeatMap,
-      histogram: D3Histogram
+      histogram: D3Histogram,
+      horizonChart: D3HorizonChart
     }
   };
 </script>

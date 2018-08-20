@@ -17,6 +17,8 @@
   - [D3GanttChart](#d3ganttchart)
   - [D3HeatMap](#d3heatmap)
   - [D3Histogram](#d3histogram)
+  - [D3HorizonChart](#d3horizonchart)
+  - [D3LineChart](#d3linechart)
 
 ---
 
@@ -1086,7 +1088,7 @@ Default: "Incident"
 ```html
 <template>
   <div>
-    <histogram :dataModel="histogramData"/>
+    <D3-histogram :dataModel="histogramData"/>
 
   </div>
 </template>
@@ -1101,7 +1103,7 @@ export default{
     }
   },
   components:{
-    histogram: D3Histogram
+    D3histogram: D3Histogram
   }
 }
 
@@ -1126,5 +1128,150 @@ The `dataModel` is empty and will produce an error by default.
 - D3Histogram appears to have a bunch of hidden behind the scenes calculations that are not made clear,
 - See Time formatting and formatTimeMixin
 - Does not have a tool for adding a label to the X or Y axis
+
+##### [<--- Back to Table of Contents](#table-of-contents)
+
+---
+
+## `D3HorizonChart`
+
+**NOTE** There is no documentation for this chart.
+
+### Sample
+
+```html
+<template>
+  <div>
+
+
+  </div>
+</template>
+
+<script>
+
+import {D3HorizonChart} from 'jscatalyst'
+export default{
+  data(){
+    return{
+      horizonChartData: [] // See dataModel property
+    }
+  },
+  components:{
+    horizonChart: D3HorizonChart
+  }
+}
+
+</script>
+```
+
+### Properties
+
+#### _`dataModel`_
+
+Type: _Object_
+
+No documentation about format of the dataModel Object
+
+```js
+```
+
+## `Developer Notes`:
+
+- dataModel documentation does not define keys or format of the data object.
+
+##### [<--- Back to Table of Contents](#table-of-contents)
+
+---
+
+## `D3LineChart`
+
+**NOTE** There is no documentation for this chart.
+
+### Sample
+
+```html
+<template>
+  <div>
+      <line-chart
+        :dataModel='lineChartData'
+        title='Example Line Chart'
+        alertText="Incident Volume"
+      />
+  </div>
+</template>
+
+<script>
+
+import {D3LineChart} from 'jscatalyst'
+export default{
+  data(){
+    return{
+      lineChartData: [] // See dataModel property
+    }
+  },
+  components:{
+    horizonChart: D3LineChart
+  }
+}
+
+</script>
+```
+
+### Properties
+
+#### _`dataModel`_
+
+Type: _Array_
+
+The `dataModel` of `D3LineChart` takes an array of objects, with each object representing a unique data point.
+
+```js
+lineChartData = [
+  { date: "2017-1-1", value: 2 },
+  { date: "2017-4-1", value: 5 },
+  { date: "2017-2-1", value: 1 },
+  { date: "2017-3-1", value: 6 },
+  { date: "2017-5-10", value: 1 },
+  { date: "2017-6-10", value: 16 },
+  { date: "2017-7-10", value: 18 },
+  { date: "2017-8-10", value: 7 },
+  { date: "2017-9-10", value: 5 },
+  { date: "2017-10-10", value: 1 },
+  { date: "2017-11-10", value: 2 },
+  { date: "2017-12-10", value: 10 }
+];
+```
+
+#### `dataModel` Object Keys:
+
+- `date`
+
+  Type: _String_
+
+  The `date` key points to a date string written in valid date format.
+
+- `value`
+
+  Type: _Number_
+
+  The actual value of the data point
+
+#### _`alertText`_
+
+Type: _String_
+
+The name of the data described by the `dataModel.value`. Rendered as the label for the Y-Axis as well as the laebl for the value in the window rendered when hovering over data.
+
+#### _`dateFormat`_
+
+Type: _String_
+
+Set the format of the `dataModel.date` according to valid D3 Date formats.
+
+Default: `"YYYY-MM-DD"`
+
+## `Developer Notes`:
+
+- Review D3
 
 ##### [<--- Back to Table of Contents](#table-of-contents)
