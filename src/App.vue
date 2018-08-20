@@ -2,7 +2,7 @@
   <div class='example-page'>
     <div class="chart">
       <!-- <line-chart :dataModel='lineChartData' propID='example-line-chart' metric='Last Sale Price' title='Example Line Chart'></line-chart> -->
-      <!-- <bar-chart title="title" :dataModel="barChartData" propID='example-bar-chart' yaxisLabel="cost" xaxisLabel="time" metric="test"></bar-chart> -->
+      <bar-chart title="title" :dataModel="barChartData" propID='example-bar-chart' yaxisLabel="cost" xaxisLabel="time" metric="test"></bar-chart>
       <!-- <bubble-chart :dataModel="bubbleChartData" title="Hello" isTime="false" type="category"></bubble-chart> -->
       <!-- <bullet-chart :dataModel="bulletChartData" isStock="true"></bullet-chart> -->
       <!-- <box-plot :dataModel="boxPlotData" ylabel="Ylabel" xlabel="Xlabel" metric="Metric"></box-plot> -->
@@ -11,7 +11,7 @@
       <!-- <force-graph :dataModel="forceDirectedGraphData" title="Title"></force-graph> -->
       <!-- <gantt-chart :dataModel="ganttChartData" style="height:100%" actual="green"></gantt-chart> -->
       <!-- <heat-map :dataModel="heatMapData" alertText="Incident(s)" propID='heatMap'></heat-map>     -->
-      <histogram  :dataModel="histogramData" xAxis="XAxis" yAxis="Y" metric="metric"/>
+      <!-- <histogram  :dataModel="histogramData" xAxis="XAxis" yAxis="Y" metric="metric"/> -->
    </div>
   </div>
 </template>

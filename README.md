@@ -1086,9 +1086,7 @@ Default: "Incident"
 ```html
 <template>
   <div>
-    <histogram
-      :dataModel="histogramData"
-    />
+    <histogram :dataModel="histogramData"/>
 
   </div>
 </template>
