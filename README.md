@@ -164,6 +164,8 @@ The `yaxisLabel` property sets the Y-axis label rendered below the Y-axis.
 
 ## `Developer Notes`:
 
+##### [<--- Back to Table of Contents](#table-of-contents)
+
 ---
 
 ## `D3BubbleChart`
@@ -272,6 +274,8 @@ Type: _Array_
 - No Entry in official documentation
 - isTime has no discdernibl function
 - **Address Catgories and "all, all ,all"**
+
+##### [<--- Back to Table of Contents](#table-of-contents)
 
 ---
 
@@ -385,6 +389,8 @@ Used to vizualize live stock, default false.
 
 - Add images
 
+##### [<--- Back to Table of Contents](#table-of-contents)
+
 ---
 
 ## `D3BoxPlot`
@@ -477,6 +483,8 @@ The label of the Y-axis. Default: "Revenue in $"
 
 - No Official Documentation Entry
 - Currently, Metric is connected to the Yaxis and `yaxis` is not connected. **Address this**
+
+##### [<--- Back to Table of Contents](#table-of-contents)
 
 ---
 
@@ -596,6 +604,8 @@ dendrogramData = [
 
 - No Official Docmuentation Entry
 
+##### [<--- Back to Table of Contents](#table-of-contents)
+
 ---
 
 ## `D3DifferenceChart`
@@ -691,6 +701,8 @@ The `keys` property takes an array of strings. Its indicated function is to allo
 
 - Keep Metric properties consistent across all charts~!!
 - Address "Keys" prop not actually changing the keys in dataModel
+
+##### [<--- Back to Table of Contents](#table-of-contents)
 
 ---
 
@@ -806,6 +818,8 @@ forceDirectedGraphData = {
 
 - Address the rendering position. Chart is cut off at top by default
 - hover not working as intended. (hold down and drag for a few seconds)
+
+##### [<--- Back to Table of Contents](#table-of-contents)
 
 ---
 
@@ -943,6 +957,8 @@ Currently not functional
 - What does `actual` do??? Right now, disconnected.
 - tickFormat?? See .Docx
 
+##### [<--- Back to Table of Contents](#table-of-contents)
+
 ---
 
 ## `D3HeatMap`
@@ -1058,4 +1074,4 @@ Default: "Incident"
 - Sample code from jscatalyst will not render without proper access to the store and ThemePlugin
 - How to connect to CSS
 
----
+##### [<--- Back to Table of Contents](#table-of-contents)
