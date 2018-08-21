@@ -21,6 +21,15 @@
   - [D3LineChart](#d3linechart)
   - [D3ZoomableLineChart](#d3zoomablelinechart)
   - [D3LinePlot](#d3lineplot)
+  - [D3PieChart](#d3piechart)
+  - [D3PunchCard](#d3punchcard)
+  - [D3ScatterPlot](#d3scatterplot)
+  - [D3StackedBarChart](#d3stackedbarchart)
+  - [D3StreamGraph](#d3streamgraph)
+  - [D3Sunburst](#d3sunburst)
+  - [D3TwoLinePlot](#d3twolineplot)
+  - [D3USMap](#d3usmap)
+  - [D3WorldMap](#d3worldmap)
 
 ---
 
@@ -1532,6 +1541,7 @@ Type: _String_
 Set the color of the graph
 
 **NOTE: This does nothing**
+
 Default: "black"
 
 ## `Developer Notes`:
@@ -1544,3 +1554,419 @@ Default: "black"
 - Review Docs -- seems to be copy pasted
 
 ##### [<--- Back to Table of Contents](#table-of-contents)
+
+---
+
+## `D3PieChart`
+
+### Sample
+
+```html
+<template>
+  <div>
+
+  </div>
+</template>
+
+<script>
+
+import {D3PieChart} from 'jscatalyst'
+export default{
+  data(){
+    return{
+      pieChartData: [] // See dataModel property
+    }
+  },
+  components:{
+    pieChart: D3PieChart
+  }
+}
+
+</script>
+```
+
+### Properties
+
+#### _`dataModel`_
+
+Type: _Array_
+
+The `dataModel` of `D3PieChart` takes an array of objects, with each object representing a unique data point.
+
+```js
+pieChartData = [
+  {
+    label: "Infrastructure",
+    value: 100
+  },
+  {
+    label: "Education",
+    value: 35
+  },
+  {
+    label: "Health",
+    value: 75
+  },
+  {
+    label: "Military",
+    value: 90
+  }
+];
+```
+
+#### `dataModel` Object Keys:
+
+- `label`
+
+  Type: _String_
+
+  The `label` key provides the name of this "slice" of data in the pie chart.
+
+- `value`
+
+  Type: _Number_
+
+  The measured data.
+
+  **NOTE: The JSCatalyst Component indicates this can be a string. String breaks the Pie**
+
+#### _`units`_
+
+Type: _String_
+
+Indicates which unit of measure the data is measured.
+
+**NOTE: This does not work as expected**
+
+#### _`donutWidth`_
+
+Type: _Number_
+
+Turns pie into a "donut". Changes the width of the donut.
+
+#### _`pieColors`_
+
+Type: _Array_
+
+List of possible pie chart colors.
+
+**NOTE: Depricated-- Mentioned in Documentation but no longer a property**
+
+## `Developer Notes`:
+
+- Value must be number
+- Units does not naturally append unit to data
+- Color is not naturally changable
+- Look into pieColors
+
+##### [<--- Back to Table of Contents](#table-of-contents)
+
+---
+
+## `D3PunchCard`
+
+### Sample
+
+```html
+<template>
+  <div>
+    <punch-card
+     :dataModel="punchCardData"
+    />
+  </div>
+</template>
+
+<script>
+
+import {D3PunchCard} from 'jscatalyst'
+export default{
+  data(){
+    return{
+      punchCardData: [] // See dataModel property
+    }
+  },
+  components:{
+    punchCard: D3PunchCard
+  }
+}
+
+</script>
+```
+
+### Properties
+
+#### _`dataModel`_
+
+Type: _Array_
+
+The `dataModel` for `D3PunchCard` takes an array of objects, with each object representing a unique data point.
+
+```js
+punchCardData = [
+  {
+    day_of_week: "0",
+    hour_volumes: [
+      5,
+      3,
+      3,
+      4,
+      6,
+      5,
+      2,
+      4,
+      5,
+      7,
+      6,
+      7,
+      4,
+      3,
+      2,
+      5,
+      5,
+      11,
+      6,
+      10,
+      7,
+      7,
+      8,
+      5
+    ]
+  },
+  {
+    day_of_week: "1",
+    hour_volumes: [
+      5,
+      6,
+      6,
+      7,
+      9,
+      5,
+      8,
+      2,
+      7,
+      7,
+      8,
+      2,
+      6,
+      5,
+      10,
+      7,
+      6,
+      11,
+      4,
+      5,
+      6,
+      3,
+      10,
+      5
+    ]
+  },
+  {
+    day_of_week: "2",
+    hour_volumes: [
+      2,
+      11,
+      4,
+      6,
+      3,
+      9,
+      6,
+      6,
+      3,
+      7,
+      5,
+      3,
+      8,
+      7,
+      8,
+      3,
+      5,
+      11,
+      5,
+      8,
+      1,
+      9,
+      5,
+      8
+    ]
+  },
+  {
+    day_of_week: "3",
+    hour_volumes: [
+      4,
+      10,
+      7,
+      4,
+      5,
+      9,
+      8,
+      3,
+      6,
+      5,
+      3,
+      7,
+      12,
+      6,
+      5,
+      9,
+      6,
+      8,
+      5,
+      7,
+      8,
+      3,
+      7,
+      10
+    ]
+  },
+  {
+    day_of_week: "4",
+    hour_volumes: [
+      7,
+      7,
+      5,
+      5,
+      5,
+      7,
+      4,
+      4,
+      6,
+      10,
+      6,
+      8,
+      1,
+      9,
+      8,
+      8,
+      6,
+      4,
+      3,
+      4,
+      5,
+      11,
+      6,
+      9
+    ]
+  },
+  {
+    day_of_week: "5",
+    hour_volumes: [
+      6,
+      7,
+      6,
+      6,
+      6,
+      6,
+      5,
+      6,
+      4,
+      10,
+      5,
+      8,
+      5,
+      6,
+      4,
+      1,
+      4,
+      11,
+      4,
+      5,
+      9,
+      2,
+      2,
+      6
+    ]
+  },
+  {
+    day_of_week: "6",
+    hour_volumes: [
+      4,
+      2,
+      5,
+      10,
+      10,
+      6,
+      4,
+      5,
+      3,
+      7,
+      4,
+      7,
+      9,
+      8,
+      5,
+      7,
+      0,
+      6,
+      4,
+      2,
+      6,
+      10,
+      10,
+      4
+    ]
+  }
+];
+```
+
+**REFORMAT^^^^^^^^^**
+
+#### `dataModel` Object Keys:
+
+- `label`
+
+  Type: _String_
+
+  The `label` key provides the name of this "slice" of data in the pie chart.
+
+- `value`
+
+  Type: _Number_
+
+  The measured data.
+
+##### [<--- Back to Table of Contents](#table-of-contents)
+
+---
+
+## `D3ScatterPlot`
+
+##### [<--- Back to Table of Contents](#table-of-contents)
+
+---
+
+## `D3StackedBarChart`
+
+##### [<--- Back to Table of Contents](#table-of-contents)
+
+---
+
+## `D3StreamGraph`
+
+##### [<--- Back to Table of Contents](#table-of-contents)
+
+---
+
+## `D3Sunburst`
+
+##### [<--- Back to Table of Contents](#table-of-contents)
+
+---
+
+## `D3TwoLinePlot`
+
+##### [<--- Back to Table of Contents](#table-of-contents)
+
+---
+
+## `D3USMap`
+
+##### [<--- Back to Table of Contents](#table-of-contents)
+
+---
+
+## `D3WorldMap`
+
+##### [<--- Back to Table of Contents](#table-of-contents)
+
+---

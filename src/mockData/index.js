@@ -11,3 +11,8 @@ export { heatMapData } from "./heatMapData";
 export { histogramData } from "./histogramData";
 export { zoomableLineChartData } from "./zoomableLineChartData";
 export { linePlotData } from "./linePlotData";
+export { pieChartData } from "./pieChartData";
+export { punchCardData } from "./punchCardData";
+export { scatterPlotData } from "./scatterPlotData";
+export { stackedBarChartData } from "./stackedBarChartData";
+export { sunburstData } from "./sunburstData";

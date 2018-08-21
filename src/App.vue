@@ -14,8 +14,14 @@
       <!-- <horizon-chart ></horizon-chart> -->
       <!-- <line-chart :dataModel='lineChartData' propID='example-line-chart' alertText="Incidents Volume" title='Example Line Chart'/> -->
       <!-- <zoomable-line-chart :dataModel="zoomableLineChartData" metric="Hello"/> -->
-      <line-plot color="brown" :dataModel="linePlotData" metric='Hello' dateFormat='YYYY-MM-DD'/>
+      <!-- <line-plot color="brown" :dataModel="linePlotData" metric='Hello' dateFormat='YYYY-MM-DD'/> -->
+      <!-- <pie-chart :dataModel="pieChartData" style="color: 'blue'" units="USD" title="Pie Chart"/> -->
+      <!-- <punch-card :dataModel="punchCardData" axisLabel="Hello" :axisColors="axisColors"/> -->
 
+      <!-- <scatter-plot :dataModel="scatterPlotData" xaxisLabel="test"/> -->
+      <!-- <stacked-bar-chart :dataModel="stackedBarChartData" xaxisLabel="xaxis test" yaxisLabel="yaxis test" dateFormat="MM/DD/YY"/> -->
+      <!-- <stream-graph :dataModel="stackedBarChartData" dateFormat="MM/DD/YY"/> -->
+      <sunburst :dataModel="sunburstData"/>
    </div>
   </div>
 </template>
@@ -36,7 +42,13 @@
     D3Histogram,
     D3HorizonChart,
     D3ZoomableLineChart,
-    D3LinePlot
+    D3LinePlot,
+    D3PieChart,
+    D3PunchCard,
+    D3ScatterPlot,
+    D3StackedBarChart,
+    D3StreamGraph,
+    D3Sunburst
   } from "jscatalyst";
   import {
     barChartData,
@@ -51,7 +63,12 @@
     heatMapData,
     histogramData,
     zoomableLineChartData,
-    linePlotData
+    linePlotData,
+    pieChartData,
+    punchCardData,
+    scatterPlotData,
+    stackedBarChartData,
+    sunburstData
   } from "./mockData/index.js";
 
   export default {
@@ -69,7 +86,13 @@
         heatMapData,
         histogramData,
         zoomableLineChartData,
-        linePlotData
+        linePlotData,
+        pieChartData,
+        punchCardData,
+        scatterPlotData,
+        stackedBarChartData,
+        sunburstData,
+        axisColors: ["#00ff00", "#fff000"]
       };
     },
     methods: {},
@@ -87,7 +110,13 @@
       histogram: D3Histogram,
       horizonChart: D3HorizonChart,
       zoomableLineChart: D3ZoomableLineChart,
-      linePlot: D3LinePlot
+      linePlot: D3LinePlot,
+      pieChart: D3PieChart,
+      punchCard: D3PunchCard,
+      scatterPlot: D3ScatterPlot,
+      stackedBarChart: D3StackedBarChart,
+      streamGraph: D3StreamGraph,
+      sunburst: D3Sunburst
     }
   };
 </script>
