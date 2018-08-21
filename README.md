@@ -19,6 +19,8 @@
   - [D3Histogram](#d3histogram)
   - [D3HorizonChart](#d3horizonchart)
   - [D3LineChart](#d3linechart)
+  - [D3ZoomableLineChart](#d3zoomablelinechart)
+  - [D3LinePlot](#d3lineplot)
 
 ---
 
@@ -1210,7 +1212,7 @@ export default{
     }
   },
   components:{
-    horizonChart: D3LineChart
+    lineChart: D3LineChart
   }
 }
 
@@ -1272,6 +1274,273 @@ Default: `"YYYY-MM-DD"`
 
 ## `Developer Notes`:
 
-- Review D3
+- Review D3 date formats
+
+##### [<--- Back to Table of Contents](#table-of-contents)
+
+---
+
+## `D3ZoomableLineChart`
+
+**NOTE** There is no documentation for this chart.
+
+### Sample
+
+```html
+<template>
+  <div>
+    <zoomable-line-chart :dataModel="zoomableLineChartData" metric="Metric Label"/>
+  </div>
+</template>
+
+<script>
+
+import {D3ZoomableLineChart} from 'jscatalyst'
+export default{
+  data(){
+    return{
+      zoomableLineChartData: [] // See dataModel property
+    }
+  },
+  components:{
+    zoomableLineChart: D3ZoomableLineChart
+  }
+}
+
+</script>
+```
+
+### Properties
+
+#### _`dataModel`_
+
+Type: _Array_
+
+The `dataModel` of `D3ZoomableLineChart` takes an array of objects, with each object representing a unique data point.
+
+```js
+zoomableineChartData = [
+  { date: "2017-1-1", value: 2 },
+  { date: "2017-4-1", value: 5 },
+  { date: "2017-2-1", value: 1 },
+  { date: "2017-3-1", value: 6 },
+  { date: "2017-5-10", value: 1 },
+  { date: "2017-6-10", value: 16 },
+  { date: "2017-7-10", value: 18 },
+  { date: "2017-8-10", value: 7 },
+  { date: "2017-9-10", value: 5 },
+  { date: "2017-10-10", value: 1 },
+  { date: "2017-11-10", value: 2 },
+  { date: "2017-12-10", value: 10 }
+];
+```
+
+#### `dataModel` Object Keys:
+
+- `date`
+
+  Type: _String_
+
+  The `date` key points to a date string written in valid date format.
+
+- `value`
+
+  Type: _Number_
+
+  The actual value of the data point
+
+#### _`dateFormat`_
+
+Type: _String_
+
+Set the format of the `dataModel.date` according to valid D3 Date formats.
+
+Default: `"YYYY-MM-DD"`
+
+#### _`metric`_
+
+Type: _String_
+
+Does not seem to be connected properly to the component. See JSCatalyst
+
+Default: `"Metric"`
+
+## `Developer Notes`:
+
+- Review D3 date formats
+- Docs say dataModel key is volume not value (actual)\
+- Metric property documented but not functional
+- No official documentation entry
+
+##### [<--- Back to Table of Contents](#table-of-contents)
+
+---
+
+## `D3LinePlot`
+
+### Sample
+
+```html
+<template>
+  <div>
+    <line-plot  :dataModel="linePlotData" metric="Sample Metric" />
+  </div>
+</template>
+
+<script>
+
+import {D3LinePlot} from 'jscatalyst'
+export default{
+  data(){
+    return{
+      linePlotData: [] // See dataModel property
+    }
+  },
+  components:{
+    linePlot: D3LinePlot
+  }
+}
+
+</script>
+```
+
+### Properties
+
+#### _`dataModel`_
+
+Type: _Array_
+
+The `dataModel` of `D3Lineplot` takes an array of objects, with each object representing a unique data point.
+
+**NOTE** Sample data provided used keys that have no obviuous function
+
+```js
+export const linePlotData = [
+  {
+    id: 2922,
+    dashboard_metric: "Ticket Volume",
+    object_id: 1,
+    date: "2017-06-01",
+    value: 120,
+    period: 604800,
+    time: null,
+    object_type: 9
+  },
+  {
+    id: 2952,
+    dashboard_metric: "Ticket Volume",
+    object_id: 2,
+    date: "2017-09-01",
+    value: 21,
+    period: 2592000,
+    time: null,
+    object_type: 9
+  },
+  {
+    id: 2938,
+    dashboard_metric: "Ticket Volume",
+    object_id: 3,
+    date: "2017-04-01",
+    value: 193,
+    period: 604800,
+    time: null,
+    object_type: 9
+  },
+  {
+    id: 2581,
+    dashboard_metric: "Ticket Volume",
+    object_id: 4,
+    date: "2017-02-01",
+    value: 313,
+    period: 86400,
+    time: null,
+    object_type: 9
+  }
+];
+```
+
+#### `dataModel` Object Keys:
+
+- `date`
+
+  Type: _String_
+
+  The `date` key points to a date string written in valid date format.
+
+- `value`
+
+  Type: _Number_
+
+  The actual value of the data point
+
+- `id`
+
+  Type: _String_
+
+  **NO DISCERNIBLE FUNCTION**
+
+- `dashboard_metric`
+
+  Type: _String_
+
+  **NO DISCERNIBLE FUNCTION**
+
+- `object_id`
+
+  Type: _String_
+
+  **NO DISCERNIBLE FUNCTION**
+
+- `period`
+
+  Type: _String_
+
+  **NO DISCERNIBLE FUNCTION**
+
+- `time`
+
+  Type: _String_
+
+  **NO DISCERNIBLE FUNCTION**
+
+- `object_type`
+
+  Type: _String_
+
+  **NO DISCERNIBLE FUNCTION**
+
+#### _`dateFormat`_
+
+Type: _String_
+
+Set the format of the `dataModel.date` according to valid D3 Date formats.
+
+Default: `"YYYY-MM-DD"`
+
+#### _`metric`_
+
+Type: _String_
+
+Label of the data measured. Rendered in hover box and as label for Y-Axis
+
+Default: `"Metric"`
+
+#### _`color`_
+
+Type: _String_
+
+Set the color of the graph
+
+**NOTE: This does nothing**
+Default: "black"
+
+## `Developer Notes`:
+
+- Review D3 date formats
+- By default, using sample, chart will not render properly. Invisible lines?
+- Sample data has a bunch of unnecessary keys
+- Color property does not change color when set to a specific value.
+- Review JSCatalyst component
+- Review Docs -- seems to be copy pasted
 
 ##### [<--- Back to Table of Contents](#table-of-contents)

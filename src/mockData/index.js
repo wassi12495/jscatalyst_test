@@ -9,3 +9,5 @@ export { forceDirectedGraphData } from "./forceDirectedGraphData.js";
 export { ganttChartData } from "./ganttChartData";
 export { heatMapData } from "./heatMapData";
 export { histogramData } from "./histogramData";
+export { zoomableLineChartData } from "./zoomableLineChartData";
+export { linePlotData } from "./linePlotData";

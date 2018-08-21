@@ -12,7 +12,9 @@
       <!-- <heat-map :dataModel="heatMapData" alertText="Incident(s)" propID='heatMap'></heat-map>     -->
       <!-- <histogram  :dataModel="histogramData" xAxis="XAxis" yAxis="Y" metric="metric"/> -->
       <!-- <horizon-chart ></horizon-chart> -->
-      <line-chart :dataModel='lineChartData' propID='example-line-chart' alertText="Incidents Volume" title='Example Line Chart'></line-chart>
+      <!-- <line-chart :dataModel='lineChartData' propID='example-line-chart' alertText="Incidents Volume" title='Example Line Chart'/> -->
+      <!-- <zoomable-line-chart :dataModel="zoomableLineChartData" metric="Hello"/> -->
+      <line-plot color="brown" :dataModel="linePlotData" metric='Hello' dateFormat='YYYY-MM-DD'/>
 
    </div>
   </div>
@@ -32,7 +34,9 @@
     D3GanttChart,
     D3HeatMap,
     D3Histogram,
-    D3HorizonChart
+    D3HorizonChart,
+    D3ZoomableLineChart,
+    D3LinePlot
   } from "jscatalyst";
   import {
     barChartData,
@@ -45,7 +49,9 @@
     forceDirectedGraphData,
     ganttChartData,
     heatMapData,
-    histogramData
+    histogramData,
+    zoomableLineChartData,
+    linePlotData
   } from "./mockData/index.js";
 
   export default {
@@ -61,7 +67,9 @@
         forceDirectedGraphData,
         ganttChartData,
         heatMapData,
-        histogramData
+        histogramData,
+        zoomableLineChartData,
+        linePlotData
       };
     },
     methods: {},
@@ -77,7 +85,9 @@
       ganttChart: D3GanttChart,
       heatMap: D3HeatMap,
       histogram: D3Histogram,
-      horizonChart: D3HorizonChart
+      horizonChart: D3HorizonChart,
+      zoomableLineChart: D3ZoomableLineChart,
+      linePlot: D3LinePlot
     }
   };
 </script>
