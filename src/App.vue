@@ -1,7 +1,7 @@
 <template>
   <div class='example-page'>
     <div class="chart">
-      <!-- <bar-chart title="title" :dataModel="barChartData" propID='example-bar-chart' yaxisLabel="cost" xaxisLabel="time" metric="test"></bar-chart> -->
+      <!-- <bar-chart title="title" @jsc_mouseover="logClick" :dataModel="barChartData" propID='example-bar-chart' yaxisLabel="cost" xaxisLabel="time" metric="test"></bar-chart> -->
       <!-- <bubble-chart :dataModel="bubbleChartData" title="Hello" isTime="false" type="category"></bubble-chart> -->
       <!-- <bullet-chart :dataModel="bulletChartData" isStock="true"></bullet-chart> -->
       <!-- <box-plot :dataModel="boxPlotData" ylabel="Ylabel" xlabel="Xlabel" metric="Metric"></box-plot> -->
@@ -21,7 +21,11 @@
       <!-- <scatter-plot :dataModel="scatterPlotData" xaxisLabel="test"/> -->
       <!-- <stacked-bar-chart :dataModel="stackedBarChartData" xaxisLabel="xaxis test" yaxisLabel="yaxis test" dateFormat="MM/DD/YY"/> -->
       <!-- <stream-graph :dataModel="stackedBarChartData" dateFormat="MM/DD/YY"/> -->
-      <sunburst :dataModel="sunburstData"/>
+      <!-- <sunburst :dataModel="sunburstData"/> -->
+      <!-- <two-line-plot :dataModel="twoLinePlotData" metric="hi" metric2="hello" :dataModel2="linePlotData" dateFormat="YYYY-MM-DD" style="stroke: #00ff00" /> -->
+      <!-- <us-map format="State"  :dataModel="usMapStateData"/> -->
+
+      <world-map/>
    </div>
   </div>
 </template>
@@ -48,7 +52,10 @@
     D3ScatterPlot,
     D3StackedBarChart,
     D3StreamGraph,
-    D3Sunburst
+    D3Sunburst,
+    D3TwoLinePlot,
+    D3USMap,
+    D3WorldMap
   } from "jscatalyst";
   import {
     barChartData,
@@ -68,7 +75,10 @@
     punchCardData,
     scatterPlotData,
     stackedBarChartData,
-    sunburstData
+    sunburstData,
+    twoLinePlotData,
+    usMapCountyData,
+    usMapStateData
   } from "./mockData/index.js";
 
   export default {
@@ -92,10 +102,17 @@
         scatterPlotData,
         stackedBarChartData,
         sunburstData,
+        twoLinePlotData,
+        usMapCountyData,
+        usMapStateData,
         axisColors: ["#00ff00", "#fff000"]
       };
     },
-    methods: {},
+    methods: {
+      logClick(data) {
+        console.log(data);
+      }
+    },
     components: {
       lineChart: D3LineChart,
       barChart: D3BarChart,
@@ -116,7 +133,10 @@
       scatterPlot: D3ScatterPlot,
       stackedBarChart: D3StackedBarChart,
       streamGraph: D3StreamGraph,
-      sunburst: D3Sunburst
+      sunburst: D3Sunburst,
+      twoLinePlot: D3TwoLinePlot,
+      usMap: D3USMap,
+      worldMap: D3WorldMap
     }
   };
 </script>

@@ -1931,11 +1931,277 @@ punchCardData = [
 
 ## `D3ScatterPlot`
 
+### Sample
+
+**NOTE: ADD scatter-plot tag to template**
+
+```html
+<template>
+  <div>
+
+  </div>
+</template>
+
+<script>
+
+import {D3ScatterPlot} from 'jscatalyst'
+export default{
+  data(){
+    return{
+      scatterPlotData: [] // See dataModel property
+    }
+  },
+  components:{
+    scatterPlot: D3ScatterPlot
+  }
+}
+
+</script>
+```
+
+### Properties
+
+#### _`dataModel`_
+
+Type: _Array_
+
+The `dataModel` for `D3ScatterPlot` takes an array of objects, with each object representing a unique data point.
+
+```js
+scatterPlotData = [
+  {
+    Value1: "Office 1",
+    Value2: "AL",
+    x: 70,
+    y: 4
+  },
+  {
+    Value1: "Office 2",
+    Value2: "MA",
+    x: 120,
+    y: 3
+  },
+  {
+    Value1: "Office 3",
+    Value2: "CA",
+    x: 70,
+    y: 4
+  },
+  {
+    Value1: "Office 4",
+    Value2: "AL",
+    x: 50,
+    y: 4
+  },
+  {
+    Value1: "Office 5",
+    Value2: "AL",
+    x: 110,
+    y: 2
+  },
+  {
+    Value1: "Office 6",
+    Value2: "CA",
+    x: 110,
+    y: 2
+  },
+  {
+    Value1: "Office 7",
+    Value2: "CA",
+    x: 110,
+    y: 2
+  },
+  {
+    Value1: "Office 8",
+    Value2: "MA",
+    x: 130,
+    y: 3
+  },
+  {
+    Value1: "Office 9",
+    Value2: "MA",
+    x: 90,
+    y: 2
+  },
+  {
+    Value1: "Office 10",
+    Value2: "AL",
+    x: 90,
+    y: 3
+  },
+  {
+    Value1: "Office 11",
+    Value2: "MA",
+    x: 120,
+    y: 1
+  },
+  {
+    Value1: "Office 12",
+    Value2: "CA",
+    x: 110,
+    y: 6
+  },
+  {
+    Value1: "Office 13",
+    Value2: "CA",
+    x: 120,
+    y: 1
+  }
+];
+```
+
+#### `dataModel` Object Keys:
+
+- `Value1`
+
+  Type: _String_ or _Number_
+
+  Label / description of datapoint
+
+- `Value2`
+
+  Type: _String_ or _Number_
+
+  Defines the group to which this data point belongs. Changes rendered color according to group.
+
+- `x`
+
+  Type: _Number_
+
+  X coordinate and independent variable
+
+- `y`
+
+  Type: _Number_
+
+  Y coordinate and dependent variable
+
+## `Developer Notes`:
+
+- No access to X/Y axis labels for customization. Hard coded by the component.
+
 ##### [<--- Back to Table of Contents](#table-of-contents)
 
 ---
 
 ## `D3StackedBarChart`
+
+### Sample
+
+```html
+<template>
+  <div>
+    <stacked-bar-chart
+      :dataModel="stackedBarChartData"
+      xaxisLabel="xaxis test"
+      yaxisLabel="yaxis test"
+      dateFormat="MM/DD/YY"
+    />
+
+  </div>
+</template>
+
+<script>
+
+import {D3StackedBarChart} from 'jscatalyst'
+export default{
+  data(){
+    return{
+      stackedBArChartData: [] // See dataModel property
+    }
+  },
+  components:{
+    stackedBarChart: D3StackedBarChart
+  }
+}
+
+</script>
+```
+
+### Properties
+
+#### _`dataModel`_
+
+Type: _Array_
+
+The `dataModel` of `D3StackedBarChart` takes an array of objects, with each object representing a unique data point.
+
+```js
+stackedBarChartData = [
+  { date: "1/1/17", A: 20, B: 5, C: 10 },
+  { date: "1/2/17", A: 25, B: 10, C: 20 },
+  { date: "1/3/17", A: 2, B: 7, C: 18 },
+  { date: "1/4/17", A: 25, B: 5, C: 26 },
+  { date: "1/5/17", A: 23, B: 9, C: 11 },
+  { date: "1/6/17", A: 29, B: 16, C: 14 },
+  { date: "1/7/17", A: 26, B: 4, C: 18 },
+  { date: "1/8/17", A: 23, B: 7, C: 14 },
+  { date: "1/9/17", A: 28, B: 9, C: 15 },
+  { date: "1/10/17", A: 23, B: 16, C: 19 },
+  { date: "1/11/17", A: 16, B: 5, C: 13 },
+  { date: "1/12/17", A: 26, B: 12, C: 11 }
+];
+```
+
+#### `dataModel` Object Keys:
+
+- `Month` (**CURRENTLY BROKEN**)
+
+  Type: _String_
+
+  X-Axis value instead of date.
+
+- `date`
+
+  Type: _String_
+
+  X-Axis value instead of month. See DateFormat property.
+
+- `A`
+
+  Type: _Number_
+
+  First Y-Axis value
+
+- `B`
+
+  Type: _Number_
+
+  Second Y-Axis Value
+
+- `C`
+
+  Type: _Number_
+
+  Third Y-Axis Value
+
+#### _`xaxisLabel`_ (**CURRENTLY BROKEN**)
+
+Type: _String_
+
+X-Axis label.
+
+#### _`yaxisLabel`_ (**CURRENTLY BROKEN**)
+
+Type: _String_
+
+Y-Axis Label
+
+#### _`dateFormat`_
+
+Type: _String_
+
+Set the format of the _`date`_ key according to valid D3 Date formats.
+
+Default: `"MMMM"`
+
+## `Developer Notes`:
+
+- xaxisLabel and yaxisLabel are disconnected
+- No obvious direct color control
+- "Month" and "Date" keys are treaded the same. Month should have a separate behavior (avoid dateFormat restrictions)
+
+- Default dateFormat should be a proper dateformat not MMMM
 
 ##### [<--- Back to Table of Contents](#table-of-contents)
 
@@ -1943,11 +2209,173 @@ punchCardData = [
 
 ## `D3StreamGraph`
 
+### Sample
+
+```html
+<template>
+  <div>
+    <stream-graph
+      :dataModel="streamGraphData"
+      dateFormat="MM/DD/YY"
+    />
+
+  </div>
+</template>
+
+<script>
+
+import {D3StreamGraph} from 'jscatalyst'
+export default{
+  data(){
+    return{
+      streamGraphData: [] // See dataModel property
+    }
+  },
+  components:{
+    streamGraph: D3StreamGraph
+  }
+}
+
+</script>
+```
+
+### Properties
+
+#### _`dataModel`_
+
+Type: _Array_
+
+The `dataModel` of `D3StackedBarChart` takes an array of objects, with each object representing a unique data point.
+
+**NOTE: Uses stackedBarChart sample data**
+
+```js
+streamGraphData = [
+  { date: "1/1/17", A: 20, B: 5, C: 10 },
+  { date: "1/2/17", A: 25, B: 10, C: 20 },
+  { date: "1/3/17", A: 2, B: 7, C: 18 },
+  { date: "1/4/17", A: 25, B: 5, C: 26 },
+  { date: "1/5/17", A: 23, B: 9, C: 11 },
+  { date: "1/6/17", A: 29, B: 16, C: 14 },
+  { date: "1/7/17", A: 26, B: 4, C: 18 },
+  { date: "1/8/17", A: 23, B: 7, C: 14 },
+  { date: "1/9/17", A: 28, B: 9, C: 15 },
+  { date: "1/10/17", A: 23, B: 16, C: 19 },
+  { date: "1/11/17", A: 16, B: 5, C: 13 },
+  { date: "1/12/17", A: 26, B: 12, C: 11 }
+];
+```
+
+#### `dataModel` Object Keys:
+
+- `Month` (**CURRENTLY BROKEN**)
+
+  Type: _String_
+
+  X-Axis value instead of date.
+
+- `date`
+
+  Type: _String_
+
+  X-Axis value instead of month. See DateFormat property.
+
+- `A`
+
+  Type: _Number_
+
+  First Y-Axis value
+
+- `B`
+
+  Type: _Number_
+
+  Second Y-Axis Value
+
+- `C`
+
+  Type: _Number_
+
+  Third Y-Axis Value
+
+#### _`dateFormat`_
+
+Type: _String_
+
+Set the format of the _`date`_ key according to valid D3 Date formats.
+
+Default: `"MM/YYYY"`
+
+## `Developer Notes`:
+
+- Make defaulr dateFormat uniform across all charts (within reason)
+- Will not render an empty graph without data. Errors
+- No official Documentation Entry
+
 ##### [<--- Back to Table of Contents](#table-of-contents)
 
 ---
 
 ## `D3Sunburst`
+
+### Sample
+
+```html
+<template>
+  <div>
+    <sunburst :dataModel="sunburstData"/>
+  </div>
+</template>
+
+<script>
+
+import {D3Sunburst} from 'jscatalyst'
+export default{
+  data(){
+    return{
+      sunburstData: [] // See dataModel property
+    }
+  },
+  components:{
+    sunburst: D3Sunburst
+  }
+}
+
+</script>
+```
+
+### Properties
+
+#### _`dataModel`_
+
+Type: _Array_
+
+The `dataModel` of `D3Sunburst` takes an array of objects, with each object representing a unique data point.
+
+#### `dataModel` Object Keys
+
+- `name`
+
+  Type: _String_
+
+  Data point label.
+
+- `children`
+
+  Type: _Array_
+
+  Array of objects. An object with children may not have a size.
+
+- `size`
+
+  Type: _Number_
+
+  The value of the datapoint. Can only be placed on an object in the child array. Used instead of the "children" key.
+
+## `Developer Notes`:
+
+- No official documentation entry
+- No rendered labels. Only on hover.
 
 ##### [<--- Back to Table of Contents](#table-of-contents)
 
@@ -1955,17 +2383,303 @@ punchCardData = [
 
 ## `D3TwoLinePlot`
 
+### Sample
+
+```html
+<template>
+  <div>
+    <two-line-plot
+      :dataModel="twoLinePlotData"
+      :dataModel2="linePlotData"
+      metric="hi"
+      metric2="hello"
+      style="stroke: #00ff00"
+    />
+
+  </div>
+</template>
+
+<script>
+
+import {D3TwoLinePlot} from 'jscatalyst'
+export default{
+  data(){
+    return{
+      twoLinePlotData: [] // See dataModel property
+    }
+  },
+  components:{
+    twoLinePlot: D3TwoLinePlot
+  }
+}
+
+</script>
+```
+
+### Properties
+
+#### _`dataModel`_ and _`dataModel2`_
+
+Type: _Array_
+
+The `D3TwoLinePlot` takes two data models: one for each line. Both `dataModel` and `dataModel2` are arrays of objects, with each object representing a unique data point.
+
+**NOTE: Using the same dataModel for both lines will cause them to render on top of eachother. Use LinePlotData as the other sample data.**
+
+```js
+export const twoLinePlotData = [
+  {
+    id: 2022,
+    dashboard_metric: "Ticket Volume",
+    object_id: 1,
+    date: "2017-06-01",
+    value: 220,
+    period: 604800,
+    time: null,
+    object_type: 9
+  },
+  {
+    id: 2052,
+    dashboard_metric: "Ticket Volume",
+    object_id: 2,
+    date: "2017-09-01",
+    value: 319,
+    period: 2592000,
+    time: null,
+    object_type: 9
+  },
+  {
+    id: 2038,
+    dashboard_metric: "Ticket Volume",
+    object_id: 3,
+    date: "2017-04-01",
+    value: 147,
+    period: 604800,
+    time: null,
+    object_type: 9
+  },
+  {
+    id: 2081,
+    dashboard_metric: "Ticket Volume",
+    object_id: 4,
+    date: "2017-02-01",
+    value: 27,
+    period: 86400,
+    time: null,
+    object_type: 9
+  },
+  {
+    id: 2080,
+    dashboard_metric: "Ticket Volume",
+    object_id: 5,
+    date: "2017-01-01",
+    value: 0,
+    period: 86400,
+    time: null,
+    object_type: 9
+  },
+  {
+    id: 2060,
+    dashboard_metric: "Ticket Volume",
+    object_id: 6,
+    date: "2017-07-01",
+    value: 140,
+    period: 86400,
+    time: null,
+    object_type: 9
+  },
+  {
+    id: 2080,
+    dashboard_metric: "Ticket Volume",
+    object_id: 7,
+    date: "2017-08-01",
+    value: 240,
+    period: 86400,
+    time: null,
+    object_type: 9
+  }
+];
+```
+
+#### `dataModel` Object Keys
+
+- `date`
+
+  Type: _String_
+
+  The independent variable (X value).
+
+- `value`
+
+  Type: _Number_
+
+  The value of the datapoint. Can only be placed on an object in the child array. Used instead of the "children" key.
+
+- `id`
+
+  Type: _String_
+
+  **NO DISCERNIBLE FUNCTION**
+
+- `dashboard_metric`
+
+  Type: _String_
+
+  **NO DISCERNIBLE FUNCTION**
+
+- `object_id`
+
+  Type: _String_
+
+  **NO DISCERNIBLE FUNCTION**
+
+- `period`
+
+  Type: _String_
+
+  **NO DISCERNIBLE FUNCTION**
+
+- `time`
+
+  Type: _String_
+
+  **NO DISCERNIBLE FUNCTION**
+
+- `object_type`
+
+  Type: _String_
+
+  **NO DISCERNIBLE FUNCTION**
+
+#### _`metric`_
+
+Type: _String_
+
+Line 1 label
+
+#### _`metric2`_
+
+Type: _String_
+
+Line 2 label
+
+#### _`dateFormat`_
+
+Type: _String_
+
+Set the format of the _`date`_ key according to valid D3 Date formats.
+
+Default: `"YYYY-MM-DD"`
+
+## `Developer Notes`:
+
+- Requires 2 separate data Models
+- will render invisible lines without specifying stoke color. **Investigate this further**
+
 ##### [<--- Back to Table of Contents](#table-of-contents)
 
 ---
 
 ## `D3USMap`
 
+### Sample
+
+```html
+<template>
+  <div>
+
+  </div>
+</template>
+
+<script>
+
+import {D3USMap} from 'jscatalyst'
+export default{
+  data(){
+    return{
+      usMapData: [] // See dataModel property
+    }
+  },
+  components:{
+    usMap: D3USMap
+  }
+}
+
+</script>
+```
+
+### Properties
+
+#### _`dataModel`_
+
+Type: _Array_
+
+The `D3TwoLinePlot` takes two data models: one for each line. Both `dataModel` and `dataModel2` are arrays of objects, with each object representing a unique data point.
+
+#### `dataModel` Object Keys
+
+- `id`
+
+  Type: _String_ or _Number_
+
+  The id number of this data point
+
+- `value`
+
+  Type: _Number_
+
+  Value of this data point. In the form of a float number percentage (i.e. 0.134)
+
+- `state`
+
+  Type: _String_
+
+  (Optional) The name of the state. See `format` property.
+
+#### _`format`_
+
+Type: _String_
+
+Format the map to divide map by "State" or "County" boundaries.
+
+Valid values: "State" and "County"
+
+Default: "County"
+
+#### _`metric`_
+
+Type: _String_
+
+Label of the data on the map
+
+Default: "Unemployment rate"
+
+#### _`colorDomain`_
+
+Type: _Array_
+
+**Unclear**
+
+#### _`legendDomain`_
+
+Type: _Array_
+
+**Unclear**
+
+## `Developer Notes`:
+
+- Hover only renders data hover window when hoving on boundaries of states
+- Legend does not render
+- no color
+- colorDomain and legendDomain do not seem to function properly
+
 ##### [<--- Back to Table of Contents](#table-of-contents)
 
 ---
 
 ## `D3WorldMap`
+
+## `Developer Notes`:
 
 ##### [<--- Back to Table of Contents](#table-of-contents)
 

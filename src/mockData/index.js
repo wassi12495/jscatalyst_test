@@ -16,3 +16,6 @@ export { punchCardData } from "./punchCardData";
 export { scatterPlotData } from "./scatterPlotData";
 export { stackedBarChartData } from "./stackedBarChartData";
 export { sunburstData } from "./sunburstData";
+export { twoLinePlotData } from "./twoLinePlotData";
+export { usMapCountyData } from "./usMapCountyData";
+export { usMapStateData } from "./usMapStateData";
